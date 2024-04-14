@@ -16,6 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="photos/ico1.ico" type="image/x-icon">
     <title>chiefkeef.us</title>
     <style>
         body {
@@ -45,9 +46,9 @@
         }
         #square {
             position: absolute;
-            width: 300px;
-            height: 325px;
-            padding-top: 55px;
+            width: 325px;
+            height: 375px;
+            padding-top: 45px;
             backdrop-filter: blur(25px);
             background-color: rgba(0, 0, 0, 0.2);
             border-radius: 10px;
@@ -57,19 +58,19 @@
             overflow: hidden;
             transition: opacity 2s, transform 2s;
             transform: scale(0);
-            animation: pulse 2s infinite ease-in-out 14000ms;
+            animation: pulse 2s infinite ease-in-out 14s;
         }
         @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.03);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
         #square img {
             width: 100px;
             height: 100px;
@@ -85,11 +86,11 @@
             font-size: 15px;
         }
         #square a {
-            margin: 40px 2px 0px;
+            margin: 40px 5px 0px;
             color: rgba(255, 255, 255, 0.5);
             background-color: rgba(0, 0, 0, 0);
             font-size: 18px;
-            padding: 10px 20px;
+            padding: 8px 18px;
             border-radius: 5px;
             text-decoration: none;
             display: inline-block;
@@ -100,12 +101,28 @@
             background-color: rgba(255, 255, 255, 0.5);
             transform: scale(1.2);
         }
+        #square a.dbutton {
+            margin-top: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 18px;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.5s, transform 0.5s, color 0.5s ease-in-out;
+        }
+        #square a.dbutton:hover {
+            color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.2);
+        }
         #start {
-        color: white;
-        transition: color 0.5s ease-in-out;
+            color: white;
+            transition: color 0.5s ease-in-out;
         }
         #start:hover {
-        color: grey;
+            color: grey;
         }
     </style>
 </head>
@@ -122,46 +139,48 @@
             <a href="https://instagram.com/pergvzt" target="_blank" class="button">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://discord.com/users/108828665986445312" target="_blank" class="button">
-                <i class="fab fa-discord"></i>
-            </a>
             <a href="https://x.com/perguzt" target="_blank" class="button">
                 <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=8e3c5b7967e94d27" target="_blank" class="button">
+                <i class="fab fa-spotify"></i>
+            </a>
+            </div>
+            <a href="https://discord.com/users/" target="_blank" class="button dbutton">
+                <i class="fab fa-discord"></i>
             </a>
         </div>
     </div>
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.getElementById('start').addEventListener('click', function() {
-        var start = document.getElementById('start');
-        var video = document.getElementById('video');
-        var square = document.getElementById('square');
-        video.style.display = 'block';
-        video.play();
-        square.style.display = 'block';
-        setTimeout(function() {
-            square.style.opacity = '1';
-            square.style.transform = 'scale(1)';
-        }, 10500);
-
-        setTimeout(function() {
-            square.style.opacity = '1';
-            square.style.animation = 'pulse 2s infinite ease-in-out';
-        }, 14000);
-
-        start.style.transition = 'opacity 0.5s ease-in-out';
-        start.style.opacity = '0';
-        setTimeout(function() {
-            start.style.display = 'none';
-        }, 500);
-
-        function hoverEffect() {
-    this.style.color = 'grey';
-}
-var start = document.getElementById('start');
-start.addEventListener('mouseover', hoverEffect);
-start.addEventListener('mouseout', hoverEffect);
-    });
+            var start = document.getElementById('start');
+            var video = document.getElementById('video');
+            var square = document.getElementById('square');
+            video.style.display = 'block';
+            video.play();
+            square.style.display = 'block';
+            setTimeout(function() {
+                square.style.opacity = '1';
+                square.style.transform = 'scale(1)';
+            }, 10500);
+            setTimeout(function() {
+                square.style.opacity = '1';
+                square.style.animation = 'pulse 2s infinite ease-in-out';
+            }, 14000);
+            start.style.transition = 'opacity 0.5s ease-in-out';
+            start.style.opacity = '0';
+            setTimeout(function() {
+                start.style.display = 'none';
+            }, 500);
+            function hoverEffect() {
+                this.style.color = 'grey';
+            }
+            var start = document.getElementById('start');
+            start.addEventListener('mouseover', hoverEffect);
+            start.addEventListener('mouseout', hoverEffect);
+        });
     </script>
-<script src="files/rocket-loader.min.js" data-cf-settings="43cf32b0d67553d601e3df56-|49" defer></script></body>
+    <script src="files/rocket-loader.min.js" data-cf-settings="43cf32b0d67553d601e3df56-|49" defer></script>
+</body>
 </html>
