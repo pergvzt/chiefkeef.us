@@ -22,8 +22,8 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: rgb(0, 0, 0);
-            color: white;
+            background-color: #000;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,7 +39,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -100;
+            z-index: -1;
             object-fit: cover;
             opacity: 0;
             transition: opacity 2s, filter 2s;
@@ -61,15 +61,8 @@
             animation: pulse 2s infinite ease-in-out 14s;
         }
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.01);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.01); }
         }
         #square img {
             width: 100px;
@@ -78,17 +71,17 @@
             border-radius: 50%;
         }
         #square .username {
-            color: white;
+            color: #fff;
             font-size: 25px;
         }
         #square p {
-            color: white;
+            color: #fff;
             font-size: 15px;
         }
         #square a {
-            margin: 40px 5px 0px;
+            margin: 40px 5px 0;
             color: rgba(255, 255, 255, 0.5);
-            background-color: rgba(0, 0, 0, 0);
+            background-color: transparent;
             font-size: 18px;
             padding: 8px 18px;
             border-radius: 5px;
@@ -96,29 +89,13 @@
             display: inline-block;
             transition: background-color 0.5s, transform 0.5s, color 0.5s ease-in-out;
         }
-        #square a.button:hover {
-            color: rgba(0, 0, 0, 0.5);
-            background-color: rgba(255, 255, 255, 0.5);
-            transform: scale(1.2);
-        }
-        #square a.dbutton {
-            margin-top: 11px;
-            color: rgba(255, 255, 255, 0.5);
-            background-color: rgba(0, 0, 0, 0);
-            font-size: 18px;
-            padding: 8px 18px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.5s, transform 0.5s, color 0.5s ease-in-out;
-        }
-        #square a.dbutton:hover {
+        #square a:hover {
             color: rgba(0, 0, 0, 0.5);
             background-color: rgba(255, 255, 255, 0.5);
             transform: scale(1.2);
         }
         #start {
-            color: white;
+            color: #fff;
             opacity: 0;
             transition: opacity 1s ease-in-out, color 0.5s ease-in-out;
         }
@@ -132,7 +109,7 @@
 </head>
 <body>
     <div id="start">click to continue</div>
-    <img id="background" src="photos/gfi1.gif" alt="Background Image">
+    <img id="background" src="photos/gif1.gif" alt="Background Image">
     <div id="square">
         <img src="photos/photo1.jpg" alt="Profile Photo">
         <div class="username">@pergvzt</div>
@@ -147,41 +124,47 @@
             <a href="https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=8e3c5b7967e94d27" target="_blank" class="button">
                 <i class="fab fa-spotify"></i>
             </a>
-            </div>
-            <a href="https://discord.com/users/108828665986445312" target="_blank" class="button dbutton">
-                <i class="fab fa-discord"></i>
-            </a>
         </div>
+        <a href="https://discord.com/users/108828665986445312" target="_blank" class="button dbutton">
+            <i class="fab fa-discord"></i>
+        </a>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
                 document.getElementById('start').style.opacity = '1';
             }, 1000);
         });
 
         document.addEventListener('contextmenu', event => event.preventDefault());
-        document.getElementById('start').addEventListener('click', function() {
-            var start = document.getElementById('start');
-            var background = document.getElementById('background');
-            var square = document.getElementById('square');
+
+        document.getElementById('start').addEventListener('click', () => {
+            const start = document.getElementById('start');
+            const background = document.getElementById('background');
+            const square = document.getElementById('square');
+
             background.style.display = 'block';
             background.style.opacity = '1';
-            background.style.filter = 'blur(0px)'
+            background.style.filter = 'blur(0px)';
             square.style.display = 'block';
-            setTimeout(function() {
+
+            setTimeout(() => {
                 square.style.opacity = '1';
                 square.style.transform = 'scale(1)';
             }, 500);
-            setTimeout(function() {
+
+            setTimeout(() => {
                 square.style.opacity = '1';
                 square.style.animation = 'pulse 2s infinite ease-in-out';
             }, 4000);
+
             start.style.transition = 'opacity 0.5s ease-in-out';
             start.style.opacity = '0';
-            setTimeout(function() {
+
+            setTimeout(() => {
                 start.style.display = 'none';
             }, 500);
+
             start.classList.add('clicked');
             playRandomSound();
         });
@@ -209,7 +192,7 @@
             'sounds/sound8.mp3'
         ];
         let lastPlayed = [];
-        
+
         function playRandomSound() {
             let availableSounds = sounds.filter(sound => !lastPlayed.includes(sound));
             if (availableSounds.length === 0) {
