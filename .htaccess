@@ -1,8 +1,0 @@
-RewriteEngine On
-
-# Przekierowanie wszystkich stron na 404.html
-RewriteCond %{REQUEST_URI} !^/404.html$
-RewriteRule ^(.*)$ /404.html [L,R=302]
-
-# Ustawienia dla domyślnej strony błędu 404
-ErrorDocument 404 /404.html
