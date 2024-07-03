@@ -370,7 +370,7 @@ function normalizeColor(hexCode) {
                         value: this.amp
                     }),
                     noiseSpeed: new this.minigl.Uniform({
-                        value: 10
+                        value: 25
                     }),
                     noiseFlow: new this.minigl.Uniform({
                         value: 3

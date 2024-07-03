@@ -2,19 +2,23 @@ var gradient = new Gradient();
 gradient.initGradient('#gradient-canvas');
 
 document.querySelector('#overlay p').addEventListener('click', function() {
+    this.classList.add('fade-to-gray');
     document.getElementById('overlay').classList.add('hidden');
+
     setTimeout(function() {
-        document.querySelector('.container').classList.add('visible');
+        var container = document.querySelector('.container');
+        container.classList.add('visible');
+        console.log('Container should be visible now.');
     }, 2000);
 });
 
-document.getElementById('overlay').addEventListener('transitionend', function() {
-    if (this.classList.contains('hidden')) {
+document.getElementById('overlay').addEventListener('transitionend', function(e) {
+    if (e.propertyName === 'opacity' && this.classList.contains('hidden')) {
         this.style.display = 'none';
+        console.log('Overlay is now hidden.');
     }
 });
 
-// Particle Effect
 let firstMove = true;
 let particleInterval;
 let mouseX, mouseY;
