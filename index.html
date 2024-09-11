@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#ff0000">
+    <meta name="theme-color" content="#656a95">
     <meta name="language" content="Polish">
     <meta name="author" content="pergvzt">
     <meta name="title" content="chiefkeef.us">
@@ -59,40 +59,41 @@
             height: 100vh;
         }
         #center-box {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 275px;
-    height: 325px;
-    padding: 20px;
-    background: #0c0d0d33;
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 2s, transform 2s;
-    box-shadow: 0 0 25px rgba(0, 0, 0, .1);
-    cursor: default;
-    border: 1.5px solid rgba(0, 0, 0, 0);
-    background-clip: padding-box;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 275px;
+            height: 325px;
+            padding: 20px;
+            background: #0c0d0d33;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s, transform 2s;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+            cursor: default;
+            border: 1.5px solid rgba(0, 0, 0, 0);
+            background-clip: padding-box;
+            will-change: transform;
         }
         @keyframes pulse {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.03);
-            }
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.03);
+    }
         }
         @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 15px rgba(255, 255, 255, .25);
-            }
-            50% {
-                text-shadow: 0 0 25px rgba(255, 255, 255, .5);
-            }
-        }
+    0%, 100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+    }
+    50% {
+        text-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.2);
+    }
+}
         #profile-pic {
             margin-top: 10px;
             width: 85px;
@@ -109,7 +110,7 @@
             font-size: 26px;
             margin-bottom: 5px;
             text-shadow: 2px 2px 4px #0c0d0d80;
-            animation: glow 2s infinite ease-in-out;
+            animation: glow 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
             cursor: default;
         }
         #description {
@@ -187,7 +188,7 @@
             cursor: default;
         }
         .visible {
-          opacity: 1 !important;
+            opacity: 1 !important;
         }
         .hidden {
             opacity: 0 !important;
@@ -300,6 +301,20 @@
             margin-right: 10px;
             margin-left: 10px;
         }
+        .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -342,79 +357,8 @@
         <audio id="audio-player" src=""></audio>
     </div>
     <script>
-async function checkSongAvailability(song) {
-    try {
-        const response = await fetch(song, { method: 'HEAD' });
-        return response.ok;
-    } catch (error) {
-        return false;
-    }
-}
-
-async function filterSongs() {
-    const availableSongs = [];
-    for (const song of songs) {
-        const isAvailable = await checkSongAvailability(song);
-        if (isAvailable) {
-            availableSongs.push(song);
-        }
-    }
-    return availableSongs;
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const overlayText = document.getElementById("overlay-text");
-    const overlay = document.getElementById("overlay");
-    const centerBox = document.getElementById("center-box");
-    const playPauseButton = document.getElementById("play-pause");
-    const audioPlayer = document.getElementById("audio-player");
-
-    setTimeout(() => overlayText.classList.add("visible"), 250);
-
-    new Gradient().initGradient("#gradient-canvas");
-
-    const availableSongs = await filterSongs();
-    
-    if (availableSongs.length > 0) {
-        songs.length = 0;
-        songs.push(...availableSongs);
-        shuffleSongs();
-        loadSong(currentSongIndex);
-        updateCounters();
-    } else {
-        console.log("Brak dostępnych piosenek.");
-    }
-
-    overlayText.addEventListener("click", () => {
-        overlay.classList.add("hidden");
-        setTimeout(() => {
-            overlay.style.display = "none";
-            centerBox.style.visibility = "visible"; 
-            setTimeout(() => {
-                centerBox.style.opacity = 1;
-                centerBox.style.transform = "translate(-50%,-50%) scale(1)";
-                setTimeout(() => {
-                    centerBox.style.animation = "pulse 2s infinite ease-in-out";
-                }, 2000);
-            }, 500);
-        }, 1000);
-
-        const musicPlayer = document.getElementById("music-player");
-        setTimeout(() => {
-            musicPlayer.style.opacity = 1;
-            musicPlayer.style.transform = "translate(-50%,0)";
-        }, 2500);
-
-        audioPlayer.play();
-        playPauseButton.classList.add("paused");
-    });
-});
-
         const songs = [
-            "sounds/Macias - INTRODESTRUKCJA.mp3",
-            "sounds/PIKERS - NIKT NIE MOWIŁ ŻE ŁATWO BĘDZIE.mp3",
             "sounds/DiamondsOnMyDick - Bloodr4yne.mp3",
-            "sounds/GRUBVS - NIE POMOGE.mp3",
             "sounds/ICYTWAT - AT YA DOME.mp3",
             "sounds/ICYTWAT - COME SEE ME.mp3",
             "sounds/kt - 223.mp3",
@@ -424,10 +368,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             "sounds/ICYTWAT - Eyez On Em.mp3",
             "sounds/THOTTWAT - MILITIA.mp3",
             "sounds/tn_490 - Please.mp3",
-            "sounds/VKIE - 2007 PIERWSZY TRACK.mp3",
-            "sounds/VKIE - KILO.mp3",
             "sounds/TOM HENGST - 2 ZÖPFE.mp3",
-            "sounds/VKIE - NLE.mp3",
             "sounds/tn_490 - Jezebel.mp3",
             "sounds/TOM HENGST - LOBSTER.mp3",
             "sounds/TIEFBASSKOMMANDO - KEIN ZUFALL.mp3",
@@ -473,6 +414,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         let songHistory = [];
         let isDragging = false;
         let wasPlaying = false;
+
+        async function checkSongAvailability(song) {
+            try {
+                const response = await fetch(song, { method: 'HEAD' });
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        async function filterSongs() {
+            const availableSongs = [];
+            for (const song of songs) {
+                const isAvailable = await checkSongAvailability(song);
+                if (isAvailable) {
+                    availableSongs.push(song);
+                }
+            }
+            return availableSongs;
+        }
 
         function updateCounters() {
             songsPlayed.innerText = `przesluchane: ${Math.min(playedSongsCount + 1, songs.length)}`;
@@ -575,46 +536,83 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            let firstMove = true;
-            let particleInterval;
-            let mouseX, mouseY;
+        let isFirstMove = true;
+        let particleInterval;
+        let mouseX, mouseY;
 
-            function createParticles(x, y, isFirstMove, className, spreadX, spreadY) {
-                for (let i = 0; i < 1; i++) {
-                    createParticle(x, y, isFirstMove, className, spreadX, spreadY);
-                }
+        function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    const offsetX = (Math.random() - 0.5) * 20;
+    const offsetY = (Math.random() - 0.5) * 20;
+    particle.style.left = `${mouseX + offsetX}px`;
+    particle.style.top = `${mouseY + offsetY}px`;
+    particle.style.backgroundColor = Math.random() < 0.5 ? "#656a95" : "#0c0d0d";
+    particle.style.opacity = Math.random() * 0.5 + 0.3;
+    document.body.appendChild(particle);
+    setTimeout(() => {
+        particle.style.opacity = '0';
+        particle.style.transform = 'scale(0.5)';
+        setTimeout(() => particle.remove(), 250);
+    }, 200);
+}
+
+function startParticleEffect(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    if (isFirstMove) {
+        isFirstMove = false;
+        particleInterval = setInterval(createParticle, 100);
+    }
+}
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const overlayText = document.getElementById("overlay-text");
+            const overlay = document.getElementById("overlay");
+            const centerBox = document.getElementById("center-box");
+
+            setTimeout(() => overlayText.classList.add("visible"), 250);
+
+            new Gradient().initGradient("#gradient-canvas");
+
+            const availableSongs = await filterSongs();
+            
+            if (availableSongs.length > 0) {
+                songs.length = 0;
+                songs.push(...availableSongs);
+                shuffleSongs();
+                loadSong(currentSongIndex);
+                updateCounters();
+            } else {
+                console.log("Brak dostępnych piosenek.");
             }
 
-            function createParticle(x, y, isFirstMove, className, spreadX, spreadY) {
-                const particle = document.createElement("div");
-                particle.classList.add(className);
-                if (isFirstMove) particle.classList.add("first-move");
-                document.body.appendChild(particle);
-
-                particle.style.backgroundColor = ["#656a95", "#0c0d0d"][Math.floor(Math.random() * 2)];
-                particle.style.left = `${x + (Math.random() - 0.5) * spreadX}px`;
-                particle.style.top = `${y + (Math.random() - 0.5) * spreadY}px`;
-                particle.style.animationDuration = `${Math.random() * 0.5 + 0.5}s`;
-                particle.style.transform = `translateX(${(Math.random() - 0.5) * spreadX}px) translateY(${(Math.random() - 0.5) * spreadY}px)`;
-
+            overlayText.addEventListener("click", () => {
+                overlay.classList.add("hidden");
                 setTimeout(() => {
-                    particle.remove();
-                }, 500);
-            }
+                    overlay.style.display = "none";
+                    centerBox.style.visibility = "visible"; 
+                    setTimeout(() => {
+    centerBox.style.opacity = 1;
+    centerBox.style.transform = "translate(-50%,-50%) scale(1)";
+    setTimeout(() => {
+        centerBox.style.animation = "pulse 3s infinite cubic-bezier(0.4, 0, 0.6, 1)";
+    }, 2000);
+}, 500);
+                }, 1000);
 
-            document.addEventListener("mousemove", function(event) {
-                mouseX = event.clientX;
-                mouseY = event.clientY;
+                const musicPlayer = document.getElementById("music-player");
+                setTimeout(() => {
+                    musicPlayer.style.opacity = 1;
+                    musicPlayer.style.transform = "translate(-50%,0)";
+                }, 2500);
 
-                if (firstMove) {
-                    firstMove = false;
-                    createParticles(mouseX, mouseY, true, "particle", 15, 15);
-                    particleInterval = setInterval(() => {
-                        createParticles(mouseX, mouseY, false, "particle", 15, 15);
-                    }, 100);
-                }
+                audioPlayer.play();
+                playPauseButton.classList.add("paused");
             });
+
+            document.addEventListener("mousemove", startParticleEffect);
         });
 
         playPauseButton.addEventListener("click", playPause);
