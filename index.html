@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pl">
+<!DOCTYPE html>
+<html lang="en-us">
 <!--
     _____________________________________________________________________________
 
@@ -9,4 +10,622 @@
     _____________________________________________________________________________
 
 -->
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#ff0000"><meta name="language" content="Polish"><meta name="author" content="pergvzt"><meta name="title" content="chiefkeef.us"><meta name="description" content="cham i prostak - @PERGVZT"><meta name="keywords" content="PERGVZT, Instagram, Twitter, Spotify, Discord, pergvzt, perguzt, pergust, pergvst"><meta name="robots" content="index, follow"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@perguzt"><meta name="twitter:site" content="@perguzt"><meta name="twitter:title" content="chiefkeef.us"><meta name="twitter:description" content="cham i prostak - @PERGVZT"><meta name="twitter:image" content="https://media.discordapp.net/attachments/827680326892912667/827793866493132800/image0.gif"><meta name="twitter:url" content="https://chiefkeef.us/"><meta property="og:title" content="chiefkeef.us"><meta property="og:description" content="cham i prostak - @PERGVZT"><meta property="og:image" content="https://media.discordapp.net/attachments/827680326892912667/827793866493132800/image0.gif"><meta property="og:url" content="https://chiefkeef.us"><meta property="og:type" content="website"><meta property="og:site_name" content="pergvzt"><title>chiefkeef.us</title><link rel="icon" href="photos/ico1.ico" type="image/x-icon"><link rel="stylesheet" href="styles.min.css"><link rel="preload" href="sounds/Macias - INTRODESTRUKCJA.mp3" as="audio" type="audio/mpeg"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><script src="gradient.js" defer></script><script src="script.min.js" defer></script><script src="files/rocket-loader.min.js" data-cf-settings="43cf32b0d67553d601e3df56-|49" defer></script></head><body><div id="overlay"><p id="overlay-text" class="clickable">click to continue</p></div><canvas id="gradient-canvas"></canvas><div id="center-box"><img id="profile-pic" src="photos/photo0.jpg" alt="Profile Picture" loading="lazy"><div id="username">@PERGVZT</div><div id="description">cham i prostak</div><div class="social-buttons"><a href="https://instagram.com/pergvzt" target="_blank" class="social-button"><i class="fab fa-instagram"></i></a><a href="https://x.com/perguzt" target="_blank" class="social-button"><i class="fab fa-twitter"></i></a><a href="https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=8e3c5b7967e94d27" target="_blank" class="social-button"><i class="fab fa-spotify"></i></a></div><div class="social-buttons2"><a href="https://discord.com/users/108828665986445312" target="_blank" class="social-button"><i class="fab fa-discord"></i></a><a href="https://chiefkeef.us/files/pergvzt.exe" target="_blank" class="social-button"><img src="icons/download.png" alt="download" loading="lazy"></a></div></div><div id="music-player"><div id="song-title">None</div><div id="time-counters"><div id="time-elapsed">Elapsed: 0:00</div><div id="time-remaining">Remaining: 0:00</div></div><div id="progress-container"><div id="progress"></div></div><div id="counters"><div id="songs-played">Songs played: 0</div><div id="songs-left">Songs left: 0</div></div><div id="controls"><button id="prev"></button><button id="play-pause"></button><button id="next"></button></div><audio id="audio-player" src=""></audio></div></body></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#ff0000">
+    <meta name="language" content="Polish">
+    <meta name="author" content="pergvzt">
+    <meta name="title" content="chiefkeef.us">
+    <meta name="description" content="cham i prostak - @PERGVZT">
+    <meta name="keywords" content="PERGVZT, Instagram, Twitter, Spotify, Discord, pergvzt, perguzt, pergust, pergvst">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@perguzt">
+    <meta name="twitter:site" content="@perguzt">
+    <meta name="twitter:title" content="chiefkeef.us">
+    <meta name="twitter:description" content="cham i prostak - @PERGVZT">
+    <meta name="twitter:image" content="https://media.discordapp.net/attachments/827680326892912667/827793866493132800/image0.gif">
+    <meta name="twitter:url" content="https://chiefkeef.us/">
+    <meta property="og:title" content="chiefkeef.us">
+    <meta property="og:description" content="cham i prostak - @PERGVZT">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/827680326892912667/827793866493132800/image0.gif">
+    <meta property="og:url" content="https://chiefkeef.us">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="pergvzt">
+    <title>chiefkeef.us</title>
+    <link rel="icon" href="photos/ico1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0c0d0d;
+            cursor: default;
+        }
+        * {
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+        #gradient-canvas {
+            --gradient-color-1: #0c0d0d;
+            --gradient-color-2: #0c0d0d;
+            --gradient-color-3: #656a95;
+            --gradient-color-4: #0c0d0d;
+            width: 100vw;
+            height: 100vh;
+        }
+        #center-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 275px;
+    height: 325px;
+    padding: 20px;
+    background: #0c0d0d33;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 2s, transform 2s;
+    box-shadow: 0 0 25px rgba(0, 0, 0, .1);
+    cursor: default;
+    border: 1.5px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.03);
+            }
+        }
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, .25);
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(255, 255, 255, .5);
+            }
+        }
+        #profile-pic {
+            margin-top: 10px;
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px #0c0d0d80;
+            cursor: default;
+        }
+        #username {
+            color: white;
+            font-size: 26px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px #0c0d0d80;
+            animation: glow 2s infinite ease-in-out;
+            cursor: default;
+        }
+        #description {
+            font-size: 16px;
+            color: gray;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px #0c0d0d80;
+            cursor: default;
+        }
+        .social-buttons {
+            margin-top: 65px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: default;
+        }
+        .social-buttons2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: default;
+        }
+        .social-button {
+            padding: 8px 16px;
+            border-radius: 5px;
+            background: #0c0d0d00;
+            color: #ffffff80;
+            text-decoration: none;
+            display: flex;
+            font-size: 18px;
+            align-items: center;
+            justify-content: center;
+            transition: background-color .5s, transform .5s ease;
+            box-shadow: 0 4px 8px #0c0d0d00;
+            cursor: default;
+        }
+        .social-button img {
+            width: 20px;
+            height: 20px;
+            cursor: default;
+        }
+        .social-button:hover {
+            background: #0c0d0d00;
+            box-shadow: 0 4px 8px #0c0d0d00;
+            transform: scale(1.2);
+            cursor: default;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(12, 13, 13, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: opacity 1s ease, visibility 1s ease;
+            cursor: default;
+        }
+        #overlay p {
+            color: white;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 2s ease, color .5s ease;
+            cursor: default;
+        }
+        #overlay p:hover {
+            color: gray;
+            cursor: default;
+        }
+        .visible {
+          opacity: 1 !important;
+        }
+        .hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+        #music-player {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            background: rgba(0, 0, 0, 0.0);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+            height: 100px;
+            transition: transform 2s ease, opacity 2s ease;
+            opacity: 0;
+            box-shadow: 0 4px 8px #0c0d0d00;
+        }
+        #controls {
+            display: flex;
+            gap: 10px;
+            cursor: default;
+        }
+        button {
+            background-color: #ffffff00;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: default;
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-color .3s ease, transform .5s ease;
+            box-shadow: 0 4px 8px #0c0d0d00;
+        }
+        button:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px #0c0d0d10;
+            cursor: default;
+        }
+        #prev {
+            background-image: url('icons/prev.png');
+        }
+        #play-pause {
+            background-image: url('icons/play.png');
+        }
+        #play-pause.paused {
+            background-image: url('icons/pause.png');
+        }
+        #next {
+            background-image: url('icons/next.png');
+        }
+        #progress-container {
+            width: 100%;
+            background: #0c0d0d33;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 0;
+            position: relative;
+            height: 10px;
+            cursor: default;
+            box-shadow: 0 4px 8px #0c0d0d20;
+            transition: background .3s ease;
+        }
+        #progress {
+            height: 100%;
+            background-color: #656a9580;
+            width: 0;
+            transition: width .1s linear, background-color .3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: default;
+        }
+        #progress-container:active #progress {
+            background-color: #656a95d2;
+            cursor: default;
+        }
+        #counters {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+        #songs-played, #songs-left {
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+        #time-counters {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        #time-elapsed, #time-remaining {
+            margin-top: -5px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay">
+        <p id="overlay-text" class="clickable">click to continue</p>
+    </div>
+    <canvas id="gradient-canvas"></canvas>
+    <div id="center-box">
+        <img id="profile-pic" src="photos/photo0.jpg" alt="Profile Picture" loading="lazy">
+        <div id="username">@PERGVZT</div>
+        <div id="description">cham i prostak</div>
+        <div class="social-buttons">
+            <a href="https://instagram.com/pergvzt" target="_blank" class="social-button"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/perguzt" target="_blank" class="social-button"><i class="fab fa-twitter"></i></a>
+            <a href="https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=8e3c5b7967e94d27" target="_blank" class="social-button"><i class="fab fa-spotify"></i></a>
+        </div>
+        <div class="social-buttons2">
+            <a href="https://discord.com/users/108828665986445312" target="_blank" class="social-button"><i class="fab fa-discord"></i></a>
+            <a href="https://chiefkeef.us/files/pergvzt.exe" target="_blank" class="social-button"><img src="icons/download.png" alt="download" loading="lazy"></a>
+        </div>
+    </div>
+    <div id="music-player">
+        <div id="song-title">None</div>
+        <div id="time-counters">
+            <div id="time-elapsed">Elapsed: 0:00</div>
+            <div id="time-remaining">Remaining: 0:00</div>
+        </div>
+        <div id="progress-container">
+            <div id="progress"></div>
+        </div>
+        <div id="counters">
+            <div id="songs-played">Songs played: 0</div>
+            <div id="songs-left">Songs left: 0</div>
+        </div>
+        <div id="controls">
+            <button id="prev"></button>
+            <button id="play-pause"></button>
+            <button id="next"></button>
+        </div>
+        <audio id="audio-player" src=""></audio>
+    </div>
+    <script>
+async function checkSongAvailability(song) {
+    try {
+        const response = await fetch(song, { method: 'HEAD' });
+        return response.ok;
+    } catch (error) {
+        return false;
+    }
+}
+
+async function filterSongs() {
+    const availableSongs = [];
+    for (const song of songs) {
+        const isAvailable = await checkSongAvailability(song);
+        if (isAvailable) {
+            availableSongs.push(song);
+        }
+    }
+    return availableSongs;
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const overlayText = document.getElementById("overlay-text");
+    const overlay = document.getElementById("overlay");
+    const centerBox = document.getElementById("center-box");
+    const playPauseButton = document.getElementById("play-pause");
+    const audioPlayer = document.getElementById("audio-player");
+
+    setTimeout(() => overlayText.classList.add("visible"), 250);
+
+    new Gradient().initGradient("#gradient-canvas");
+
+    const availableSongs = await filterSongs();
+    
+    if (availableSongs.length > 0) {
+        songs.length = 0;
+        songs.push(...availableSongs);
+        shuffleSongs();
+        loadSong(currentSongIndex);
+        updateCounters();
+    } else {
+        console.log("Brak dostępnych piosenek.");
+    }
+
+    overlayText.addEventListener("click", () => {
+        overlay.classList.add("hidden");
+        setTimeout(() => {
+            overlay.style.display = "none";
+            centerBox.style.visibility = "visible"; 
+            setTimeout(() => {
+                centerBox.style.opacity = 1;
+                centerBox.style.transform = "translate(-50%,-50%) scale(1)";
+                setTimeout(() => {
+                    centerBox.style.animation = "pulse 2s infinite ease-in-out";
+                }, 2000);
+            }, 500);
+        }, 1000);
+
+        const musicPlayer = document.getElementById("music-player");
+        setTimeout(() => {
+            musicPlayer.style.opacity = 1;
+            musicPlayer.style.transform = "translate(-50%,0)";
+        }, 2500);
+
+        audioPlayer.play();
+        playPauseButton.classList.add("paused");
+    });
+});
+
+        const songs = [
+            "sounds/Macias - INTRODESTRUKCJA.mp3",
+            "sounds/PIKERS - NIKT NIE MOWIŁ ŻE ŁATWO BĘDZIE.mp3",
+            "sounds/DiamondsOnMyDick - Bloodr4yne.mp3",
+            "sounds/GRUBVS - NIE POMOGE.mp3",
+            "sounds/ICYTWAT - AT YA DOME.mp3",
+            "sounds/ICYTWAT - COME SEE ME.mp3",
+            "sounds/kt - 223.mp3",
+            "sounds/ICYTWAT - LOVE WHO.mp3",
+            "sounds/PIKERS - CYRKIEL EVILPLUG.mp3",
+            "sounds/THOTTWAT - FUKDALAW.mp3",
+            "sounds/ICYTWAT - Eyez On Em.mp3",
+            "sounds/THOTTWAT - MILITIA.mp3",
+            "sounds/tn_490 - Please.mp3",
+            "sounds/VKIE - 2007 PIERWSZY TRACK.mp3",
+            "sounds/VKIE - KILO.mp3",
+            "sounds/TOM HENGST - 2 ZÖPFE.mp3",
+            "sounds/VKIE - NLE.mp3",
+            "sounds/tn_490 - Jezebel.mp3",
+            "sounds/TOM HENGST - LOBSTER.mp3",
+            "sounds/TIEFBASSKOMMANDO - KEIN ZUFALL.mp3",
+            "sounds/ZAYGUAPKID - DoBetter RAPGOTH STKNBG.mp3",
+            "sounds/phreshboyswag - i messed up .. dont be mad.mp3",
+            "sounds/Ocboyblau - Frenchnails.mp3",
+            "sounds/Tom Hengst - PORNOFILM.mp3",
+            "sounds/Ocboyblau - OSS.mp3",
+            "sounds/Dante YN - Remedy.mp3",
+            "sounds/Ocboyblau - DrainerGF Freestyle.mp3",
+            "sounds/makko - Zickzack.mp3",
+            "sounds/Brennan Jones - Freestyle.mp3",
+            "sounds/RXKNephew - Good Morning.mp3",
+            "sounds/Run Along Forever - Just Bands.mp3",
+            "sounds/phreshboyswag - girls pay for my dick.mp3",
+            "sounds/RONEN - Waiting....mp3",
+            "sounds/Yung Lean - Smirnoff Ice.mp3",
+            "sounds/Gunna - hakuna matata.mp3",
+            "sounds/smokedope2016 - Frat.mp3",
+            "sounds/smokedope2016 - Glock.mp3",
+            "sounds/praisezo - SAVEIT.mp3",
+            "sounds/Yxng LJ - Spending My Time.mp3",
+            "sounds/vynce - midnight killaz.mp3",
+            "sounds/slicko - monster.mp3",
+            "sounds/Baby B3ns - Liebe in Stereo.mp3",
+            "sounds/Beyazz - Parkbank.mp3",
+            "sounds/Luciano - Starboy.mp3",
+            "sounds/Zensery - SCHNAPS..mp3"
+        ];
+
+        const audioPlayer = document.getElementById("audio-player");
+        const songTitle = document.getElementById("song-title");
+        const playPauseButton = document.getElementById("play-pause");
+        const progress = document.getElementById("progress");
+        const progressContainer = document.getElementById("progress-container");
+        const songsPlayed = document.getElementById("songs-played");
+        const songsLeft = document.getElementById("songs-left");
+        const timeElapsed = document.getElementById("time-elapsed");
+        const timeRemaining = document.getElementById("time-remaining");
+
+        let playedSongsCount = 0;
+        let currentSongIndex = 0;
+        let songHistory = [];
+        let isDragging = false;
+        let wasPlaying = false;
+
+        function updateCounters() {
+            songsPlayed.innerText = `przesluchane: ${Math.min(playedSongsCount + 1, songs.length)}`;
+            songsLeft.innerText = `zostalo: ${Math.max(songs.length - (playedSongsCount + 1), 0)}`;
+        }
+
+        function loadSong(index) {
+            audioPlayer.src = songs[index];
+            const songName = songs[index].split("/").pop().replace(".mp3", "");
+            songTitle.innerText = songName;
+            updateCounters();
+        }
+
+        function playPause() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+            playPauseButton.classList.toggle("paused");
+        }
+
+        function prevSong() {
+            if (songHistory.length > 0) {
+                currentSongIndex = songHistory.pop();
+                playedSongsCount--;
+                loadSong(currentSongIndex);
+                audioPlayer.play();
+                playPauseButton.classList.add("paused");
+                updateCounters();
+            }
+        }
+
+        function shuffleSongs() {
+            for (let i = songs.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [songs[i], songs[j]] = [songs[j], songs[i]];
+            }
+        }
+
+        function nextSong() {
+            if (playedSongsCount >= songs.length - 1) {
+                shuffleSongs();
+                playedSongsCount = 0;
+                songHistory.length = 0;
+            } else {
+                songHistory.push(currentSongIndex);
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+                playedSongsCount++;
+            }
+            loadSong(currentSongIndex);
+            audioPlayer.play();
+            playPauseButton.classList.add("paused");
+            updateCounters();
+        }
+
+        function updateProgress() {
+            const { currentTime, duration } = audioPlayer;
+            if (!isNaN(currentTime) && !isNaN(duration)) {
+                const progressPercent = (currentTime / duration) * 100;
+                progress.style.width = `${progressPercent}%`;
+                const elapsedMinutes = Math.floor(currentTime / 60);
+                const elapsedSeconds = Math.floor(currentTime % 60);
+                const remainingMinutes = Math.floor((duration - currentTime) / 60);
+                const remainingSeconds = Math.floor((duration - currentTime) % 60);
+                timeElapsed.innerText = `${elapsedMinutes}:${elapsedSeconds < 10 ? "0" : ""}${elapsedSeconds}`;
+                timeRemaining.innerText = `${remainingMinutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+            }
+        }
+
+        function setProgress(e) {
+            const width = progressContainer.getBoundingClientRect().width;
+            const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
+            const duration = audioPlayer.duration;
+            if (!isNaN(duration)) {
+                audioPlayer.currentTime = (clickX / width) * duration;
+                updateProgress();
+            }
+        }
+
+        function startDrag(e) {
+            isDragging = true;
+            wasPlaying = !audioPlayer.paused;
+            audioPlayer.pause();
+            setProgress(e);
+            document.body.style.cursor = "default";
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                requestAnimationFrame(() => setProgress(e));
+            }
+        }
+
+        function endDrag() {
+            if (isDragging) {
+                isDragging = false;
+                if (wasPlaying) audioPlayer.play();
+                document.body.style.cursor = "default";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let firstMove = true;
+            let particleInterval;
+            let mouseX, mouseY;
+
+            function createParticles(x, y, isFirstMove, className, spreadX, spreadY) {
+                for (let i = 0; i < 1; i++) {
+                    createParticle(x, y, isFirstMove, className, spreadX, spreadY);
+                }
+            }
+
+            function createParticle(x, y, isFirstMove, className, spreadX, spreadY) {
+                const particle = document.createElement("div");
+                particle.classList.add(className);
+                if (isFirstMove) particle.classList.add("first-move");
+                document.body.appendChild(particle);
+
+                particle.style.backgroundColor = ["#656a95", "#0c0d0d"][Math.floor(Math.random() * 2)];
+                particle.style.left = `${x + (Math.random() - 0.5) * spreadX}px`;
+                particle.style.top = `${y + (Math.random() - 0.5) * spreadY}px`;
+                particle.style.animationDuration = `${Math.random() * 0.5 + 0.5}s`;
+                particle.style.transform = `translateX(${(Math.random() - 0.5) * spreadX}px) translateY(${(Math.random() - 0.5) * spreadY}px)`;
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 500);
+            }
+
+            document.addEventListener("mousemove", function(event) {
+                mouseX = event.clientX;
+                mouseY = event.clientY;
+
+                if (firstMove) {
+                    firstMove = false;
+                    createParticles(mouseX, mouseY, true, "particle", 15, 15);
+                    particleInterval = setInterval(() => {
+                        createParticles(mouseX, mouseY, false, "particle", 15, 15);
+                    }, 100);
+                }
+            });
+        });
+
+        playPauseButton.addEventListener("click", playPause);
+        document.getElementById("prev").addEventListener("click", prevSong);
+        document.getElementById("next").addEventListener("click", nextSong);
+        audioPlayer.addEventListener("timeupdate", updateProgress);
+        audioPlayer.addEventListener("ended", nextSong);
+        progressContainer.addEventListener("mousedown", startDrag);
+        document.addEventListener("mousemove", drag);
+        document.addEventListener("mouseup", endDrag);
+    </script>
+    <script src="gradient.js"></script>
+</body>
+</html>
