@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#656a95">
+    <meta name="theme-color" content="#483f33">
     <meta name="language" content="Polish">
     <meta name="author" content="pergvzt">
     <meta name="title" content="chiefkeef.us">
@@ -51,10 +51,10 @@
             -webkit-touch-callout: none;
         }
         #gradient-canvas {
-            --gradient-color-1: #0c0d0d;
-            --gradient-color-2: #0c0d0d;
-            --gradient-color-3: #656a95;
-            --gradient-color-4: #0c0d0d;
+            --gradient-color-1: #141513;
+            --gradient-color-2: #483f33;
+            --gradient-color-3: #090909;
+            --gradient-color-4: #090909;
             width: 100vw;
             height: 100vh;
         }
@@ -263,7 +263,7 @@
         }
         #progress {
             height: 100%;
-            background-color: #656a9580;
+            background-color: #483f3380;
             width: 0;
             transition: width .1s linear, background-color .3s ease;
             position: absolute;
@@ -272,7 +272,7 @@
             cursor: default;
         }
         #progress-container:active #progress {
-            background-color: #656a95d2;
+            background-color: #483f33d2;
             cursor: default;
         }
         #counters {
@@ -323,7 +323,7 @@
     </div>
     <canvas id="gradient-canvas"></canvas>
     <div id="center-box">
-        <img id="profile-pic" src="photos/photo0.jpg" alt="Profile Picture" loading="lazy">
+        <img id="profile-pic" src="photos/photo0.webp" alt="Profile Picture" loading="lazy">
         <div id="username">@PERGVZT</div>
         <div id="description">cham i prostak</div>
         <div class="social-buttons">
@@ -547,7 +547,7 @@
     const offsetY = (Math.random() - 0.5) * 20;
     particle.style.left = `${mouseX + offsetX}px`;
     particle.style.top = `${mouseY + offsetY}px`;
-    particle.style.backgroundColor = Math.random() < 0.5 ? "#656a95" : "#0c0d0d";
+    particle.style.backgroundColor = Math.random() < 0.5 ? "#483f33" : "#0c0d0d";
     particle.style.opacity = Math.random() * 0.5 + 0.3;
     document.body.appendChild(particle);
     setTimeout(() => {
