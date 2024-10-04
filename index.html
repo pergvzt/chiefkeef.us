@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!--
+    _____________________________________________________________________________
+
+                              Copyright © 2024 pergvzt
+                                Made for chiefkeef.us
+
+                Reproduction without permission of the owner prohibited
+    _____________________________________________________________________________
+
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#483f33">
+    <meta name="language" content="Polish">
+    <meta name="author" content="pergvzt">
+    <meta name="title" content="chiefkeef.us">
+    <meta name="description" content="cham i prostak - @PERGVZT">
+    <meta name="keywords" content="PERGVZT, Instagram, Twitter, Spotify, Discord, pergvzt, perguzt, pergust, pergvst">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@perguzt">
+    <meta name="twitter:site" content="@perguzt">
+    <meta name="twitter:title" content="chiefkeef.us">
+    <meta name="twitter:description" content="cham i prostak - @PERGVZT">
+    <meta name="twitter:image" content="https://media.discordapp.net/attachments/827680326892912667/827793866493132800/image0.gif">
+    <meta name="twitter:url" content="https://chiefkeef.us/">
+    <meta property="og:title" content="chiefkeef.us">
+    <meta property="og:description" content="cham i prostak - @PERGVZT">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/827680326892912667/827793866493132800/image0.gif">
+    <meta property="og:url" content="https://chiefkeef.us">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="pergvzt">
+        <title>᲼</title>
+        <link rel="icon" href="photo/icon.ico" type="image/x-icon">
+        <script src="script.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #141513;
+            cursor: default;
+        }
+
+        #gradient-canvas {
+            --gradient-color-1: #141513;
+            --gradient-color-2: #483f33;
+            --gradient-color-3: #090909;
+            --gradient-color-4: #090909;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        #overlay span {
+            color: white;
+            font-size: 16px;
+            font-weight: 100;
+            opacity: 0;
+            animation: fadeInText 0.5s ease 0.25s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #central-box {
+            width: 275px;
+            height: 325px;
+            border-radius: 5%;
+            background-color: #14151366;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease;
+        }
+
+        #central-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            margin-top: -0px;
+        }
+
+        .text-large {
+            font-size: 24px;
+            color: white;
+            margin: 5px 0;
+            font-weight: 600;
+            position: relative;
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                text-shadow: 0 0 5px #ffffff25, 0 0 10px #ffffff25, 0 0 15px #ffffff25, 0 0 20px #ffffff25;
+            }
+            50% {
+                text-shadow: 0 0 15px #ffffff25, 0 0 20px #ffffff25, 0 0 25px #ffffff25, 0 0 30px #ffffff25;
+            }
+            100% {
+                text-shadow: 0 0 5px #ffffff25, 0 0 10px #ffffff25, 0 0 15px #ffffff25, 0 0 20px #ffffff25; 
+            }
+        }
+
+        .text-small {
+            font-size: 16px;
+            color: #483f33;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            border: 2px solid #483f3300;
+            background-color: transparent;
+            color: #5e5244;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .button:hover {
+            color: #483f33;
+            transform: scale(1.1);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        .pulsing {
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <body>
+        <canvas id="gradient-canvas"></canvas>
+        <div id="overlay" onclick="hideOverlay()">
+            <span>click to continue</span>
+        </div>
+
+        <div id="central-box">
+            <img src="photo/avatar.webp" alt="Avatar">
+            <div class="text-large">PERGVZT</div>
+            <div class="text-small">cham i prostak</div>
+
+            <div class="buttons-container">
+                <div class="button-row">
+                    <button class="button" onclick="window.open('https://www.instagram.com/pergvzt', '_blank')">
+                        <i class="fa-brands fa-instagram"></i>
+                    </button>
+                    <button class="button" onclick="window.open('https://www.twitter.com/perguzt', '_blank')">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+                    <button class="button" onclick="window.open('https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=47bd7e53a6ab464a', '_blank')">
+                        <i class="fa-brands fa-spotify"></i>
+                    </button>
+                    <button class="button" onclick="window.open('<https://discord.com/users/108828665986445312>', '_blank')">
+                        <i class="fa-brands fa-discord"></i>
+                    </button>
+                </div>
+                <div class="button-row">
+                    <button class="button" onclick="window.open('https://example.com/download', '_blank')">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <audio id="background-music"></audio>
+        <script>
+            var gradient = new Gradient();
+            gradient.initGradient('#gradient-canvas');
+
+            var musicFiles = [
+                'music/UnderYourSpell.mp3',
+                'music/Zickzack.mp3',
+                'music/Mask2MyFace.mp3',
+                'music/Uczucia.mp3',
+                'music/dancewithme.mp3',
+                'music/BangBang.mp3'
+            ];
+
+            var playedMusic = [];
+            var musicElement = document.getElementById("background-music");
+
+            function playRandomSong() {
+                if (playedMusic.length === musicFiles.length) {
+                    playedMusic = [];
+                }
+
+                let availableSongs = musicFiles.filter(song => !playedMusic.includes(song));
+                let randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
+                playedMusic.push(randomSong);
+                musicElement.src = randomSong;
+                musicElement.play();
+            }
+
+            musicElement.addEventListener('ended', playRandomSong);
+
+            function hideOverlay() {
+                var overlay = document.getElementById("overlay");
+                var centralBox = document.getElementById("central-box");
+
+                overlay.style.transition = "opacity 0.5s ease";
+                overlay.style.opacity = "0";
+
+                setTimeout(function() {
+                    overlay.style.display = "none";
+                    centralBox.style.visibility = "visible";
+                    centralBox.style.opacity = "1";
+                }, 500);
+
+                setTimeout(function() {
+                    centralBox.classList.add("pulsing");
+                }, 500);
+
+                playRandomSong();
+            }
+        </script>
+    </body>
+</html>
