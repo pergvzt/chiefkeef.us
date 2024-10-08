@@ -34,170 +34,187 @@
     <meta property="og:url" content="https://chiefkeef.us">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="pergvzt">
-        <title>᲼</title>
-        <link rel="icon" href="photo/icon.ico" type="image/x-icon">
-        <script src="script.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            font-family: 'Poppins', sans-serif;
-            background-color: #141513;
-            cursor: default;
-        }
+    <title>᲼</title>
+    <link rel="icon" href="photo/icon.ico" type="image/x-icon">
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+        background-color: #141513;
+        cursor: default;
+    }
+    * {
+        user-select: none;
+        -webkit-touch-callout: none;
+    }
+    #gradient-canvas {
+        --gradient-color-1: #141513;
+        --gradient-color-2: #483f33;
+        --gradient-color-3: #090909;
+        --gradient-color-4: #090909;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+    }
 
-        #gradient-canvas {
-            --gradient-color-1: #141513;
-            --gradient-color-2: #483f33;
-            --gradient-color-3: #090909;
-            --gradient-color-4: #090909;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-        }
+    #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        cursor: pointer;
+    }
 
-        #overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            cursor: pointer;
-        }
+    #overlay span {
+        color: white;
+        font-size: 16px;
+        font-weight: 100;
+        opacity: 0;
+        animation: fadeInText 0.5s ease 0.25s forwards;
+    }
 
-        #overlay span {
-            color: white;
-            font-size: 16px;
-            font-weight: 100;
+    @keyframes fadeInText {
+        0% {
             opacity: 0;
-            animation: fadeInText 0.5s ease 0.25s forwards;
         }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    #rectangle-container {
+        width: 100vw;
+        height: 100vh;
+        perspective: 2000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
+    #rectangle {
+        width: 275px;
+        height: 325px;
+        border-radius: 5%;
+        background-color: #14151366;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease, box-shadow 0.3s ease;;
+        backdrop-filter: blur(0px);
+        border: 0.5px dashed #483f3369;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        z-index: 2;
+        overflow: hidden; /* Ukrywa wystające elementy */
+    }
 
-        #central-box {
-            width: 275px;
-            height: 325px;
-            border-radius: 5%;
-            background-color: #14151366;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s ease;
-        }
+    #rectangle img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        margin-top: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        #central-box img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            margin-top: -0px;
-        }
+    #rectangle:hover img {
+        transform: scale(1.0); /* Efekt powiększenia na hover */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Wzmocniony cień przy hoverze */
+    }
 
-        .text-large {
-            font-size: 24px;
-            color: white;
-            margin: 5px 0;
-            font-weight: 600;
-            position: relative;
-            animation: pulse-glow 2s infinite ease-in-out;
-        }
+    #rectangle:hover {
+        transform: rotateX(0deg) rotateY(0deg) translateZ(30px); /* Mocniejszy efekt 3D na hover */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Wzmocniony cień przy hoverze */
+    }
 
-        @keyframes pulse-glow {
-            0% {
-                text-shadow: 0 0 5px #ffffff25, 0 0 10px #ffffff25, 0 0 15px #ffffff25, 0 0 20px #ffffff25;
-            }
-            50% {
-                text-shadow: 0 0 15px #ffffff25, 0 0 20px #ffffff25, 0 0 25px #ffffff25, 0 0 30px #ffffff25;
-            }
-            100% {
-                text-shadow: 0 0 5px #ffffff25, 0 0 10px #ffffff25, 0 0 15px #ffffff25, 0 0 20px #ffffff25; 
-            }
-        }
+    .text-large {
+        font-size: 24px;
+        color: white;
+        margin: 5px 0;
+        font-weight: 600;
+        position: relative;
+        animation: pulse-glow 2s infinite ease-in-out;
+    }
 
-        .text-small {
-            font-size: 16px;
-            color: #483f33;
-            margin: 0;
-            font-weight: 300;
+    @keyframes pulse-glow {
+        0% {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
         }
+        50% {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+        100% {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+    }
 
-        .buttons-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 25px;
-        }
+    .text-small {
+        font-size: 16px;
+        color: #483f33;
+        margin: 0;
+        font-weight: 300;
+    }
 
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            margin-top: 5px;
-        }
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+    }
 
-        .button {
-            display: flex;
-            align-items: center;
-            border: 2px solid #483f3300;
-            background-color: transparent;
-            color: #5e5244;
-            font-size: 16px;
-            cursor: pointer;
-            transition: color 0.2s, transform 0.2s;
-        }
+    .button-row {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 5px;
+    }
 
-        .button:hover {
-            color: #483f33;
-            transform: scale(1.1);
-        }
+    .button {
+        display: flex;
+        align-items: center;
+        border: 2px solid #483f3300;
+        background-color: transparent;
+        color: #5e5244;
+        font-size: 16px;
+        cursor: pointer;
+        transition: color 0.2s, transform 0.2s;
+    }
 
-        .button:active {
-            transform: scale(0.95);
-        }
+    .button:hover {
+        color: #483f33;
+        transform: scale(1.1);
+    }
 
-        .pulsing {
-            animation: pulse 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
+    .button:active {
+        transform: scale(0.95);
+    }
 </style>
 <body>
     <canvas id="gradient-canvas"></canvas>
@@ -205,30 +222,30 @@
         <span>click to continue</span>
     </div>
 
-    <div id="central-box">
+    <div id="rectangle">
         <img src="photo/avatar.webp" alt="Avatar">
         <div class="text-large">PERGVZT</div>
         <div class="text-small">cham i prostak</div>
 
-            <div class="buttons-container">
-                <div class="button-row">
-                    <button class="button" onclick="window.open('https://www.instagram.com/pergvzt', '_blank')">
-                        <i class="fa-brands fa-instagram"></i>
-                    </button>
-                    <button class="button" onclick="window.open('https://www.twitter.com/perguzt', '_blank')">
-                        <i class="fa-brands fa-twitter"></i>
-                    </button>
-                    <button class="button" onclick="window.open('https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=47bd7e53a6ab464a', '_blank')">
-                        <i class="fa-brands fa-spotify"></i>
-                    </button>
-                    <button class="button" onclick="window.open('<https://discord.com/users/108828665986445312>', '_blank')">
-                        <i class="fa-brands fa-discord"></i>
-                    </button>
-                </div>
-                <div class="button-row">
-                    <button class="button" onclick="window.open('https://chiefkeef.us/files/pergvzt.exe', '_blank')">
-                        <i class="fa-solid fa-download"></i>
-                    </button>
+        <div class="buttons-container">
+            <div class="button-row">
+                <button class="button" onclick="window.open('https://www.instagram.com/pergvzt', '_blank')">
+                    <i class="fa-brands fa-instagram"></i>
+                </button>
+                <button class="button" onclick="window.open('https://www.twitter.com/perguzt', '_blank')">
+                    <i class="fa-brands fa-twitter"></i>
+                </button>
+                <button class="button" onclick="window.open('https://open.spotify.com/user/31h5boh7wrzxadnukaiefjplpbie?si=47bd7e53a6ab464a', '_blank')">
+                    <i class="fa-brands fa-spotify"></i>
+                </button>
+                <button class="button" onclick="window.open('<https://discord.com/users/108828665986445312>', '_blank')">
+                    <i class="fa-brands fa-discord"></i>
+                </button>
+            </div>
+            <div class="button-row">
+                <button class="button" onclick="window.open('https://chiefkeef.us/files/pergvzt.exe', '_blank')">
+                    <i class="fa-solid fa-download"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -238,14 +255,47 @@
         var gradient = new Gradient();
         gradient.initGradient('#gradient-canvas');
 
-        var musicFiles = [
-            'music/dancewithme.mp3'
-        ];
+        const rectangle = document.getElementById('rectangle');
+        let isMouseInside = false;
 
+        function smoothValue(value, limit = 10) {
+            return Math.max(Math.min(value, limit), -limit);
+        }
+
+        rectangle.addEventListener('mousemove', (e) => {
+            const rect = rectangle.getBoundingClientRect();
+            const rectWidth = rect.width;
+            const rectHeight = rect.height;
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            if (mouseX >= 0 && mouseX <= rectWidth && mouseY >= 0 && mouseY <= rectHeight) {
+                isMouseInside = true;
+
+                let percentX = (mouseX / rectWidth) * 2 - 1;
+                let percentY = (mouseY / rectHeight) * 2 - 1;
+
+                percentX = smoothValue(percentX);
+                percentY = smoothValue(percentY);
+
+                const depthEffect = 25;
+
+                const rotateX = -percentY * depthEffect;
+                const rotateY = percentX * depthEffect;
+
+                rectangle.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            }
+        });
+
+        rectangle.addEventListener('mouseleave', () => {
+            rectangle.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+            isMouseInside = false;
+        });
+
+        var musicFiles = ['music/dancewithme.mp3'];
         var playedMusic = [];
         var musicElement = document.getElementById("background-music");
 
-        // Preload music files
         musicFiles.forEach(function(file) {
             var audio = new Audio(file);
             audio.preload = "auto";
@@ -270,7 +320,7 @@
 
         function hideOverlay() {
             var overlay = document.getElementById("overlay");
-            var centralBox = document.getElementById("central-box");
+            var centralBox = document.getElementById("rectangle");
 
             overlay.style.transition = "opacity 0.5s ease";
             overlay.style.opacity = "0";
@@ -281,13 +331,8 @@
                 centralBox.style.opacity = "1";
             }, 500);
 
-            setTimeout(function() {
-                centralBox.classList.add("pulsing");
-            }, 500);
-
             playRandomSong();
         }
     </script>
-    <script src="files/rocket-loader.min.js" data-cf-settings="19d9f770fad1e74b254c630e-|49" defer></script>
 </body>
 </html>
