@@ -13,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=https://fakecrime.bio/pergvzt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#483f33">
     <meta name="language" content="Polish">
@@ -333,6 +334,17 @@
 
             playRandomSong();
         }
+    </script>
+        <div id="dynamicContent"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(() => {
+                const content = document.getElementById('dynamicContent');
+                content.innerHTML = '<p>Jeśli nie zostaniesz przekierowany automatycznie, <a href="https://fakecrime.bio/pergvzt">kliknij tutaj</a>.</p>';
+                content.style.display = 'block';
+                content.style.animation = 'fadeIn 2s ease forwards';
+            }, 2000);
+        });
     </script>
     <script src="files/rocket-loader.min.js" data-cf-settings="19d9f770fad1e74b254c630e-|49" defer></script>
 </body>
